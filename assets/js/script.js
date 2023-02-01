@@ -70,7 +70,7 @@ const completarTarea = (tareaId)=>{
 }
 
 const borrarTarea = (tareaId)=>{
-    let index = tareas.find(tarea=>tarea.id === tareaId)
+    let index = tareas.findIndex(tarea=>tarea.id === tareaId)
     tareas.splice(index, 1)
     listarTareas()
     tareasCount()
