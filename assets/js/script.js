@@ -23,7 +23,7 @@ const creaTarea = ()=>{
 
 const listarTareas = ()=>{
     let html ='';
-   document.getElementById("sinTareas").innerHTML = `<img src="./assets/imgs/calendar.png" alt="imagen de calendario" width="30%">`;
+   document.getElementById("sinTareas").innerHTML = `<img src="./assets/imgs/calendar.png" alt="imagen de calendario" width="500px">`;
 
     for(let tarea of tareas){      
         if(tarea.estado === false){
