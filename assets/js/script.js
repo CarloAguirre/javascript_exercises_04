@@ -13,6 +13,7 @@ const creaTarea = ()=>{
         tareas.push({id:idTarea, desc:nuevaTarea.value, fecha:date, estado: false}); 
         
         listarTareas();
+        tareasCount();
     })
 }
 
@@ -65,6 +66,23 @@ const completarTarea = (tareaId)=>{
     let tarea = tareas.find(tarea=>tarea.id === tareaId)
     tarea.estado = true;
     listarTareas()
+    tareasCount()
 }
 
+const tareasCount =()=>{
+    let totalTareasHTML = document.getElementById("totalTareas")
+    let tareasCompletadasHTML = document.getElementById("tareasCompletadas")
+
+    let totalTareas = tareas.length;
+    let tareasCompletadas = 0
+    tareas.find(tarea=>{
+        if(tarea.estado === true){
+            tareasCompletadas ++
+        }
+    })
+
+    totalTareasHTML.innerHTML = totalTareas;
+    tareasCompletadasHTML.innerHTML = tareasCompletadas;
+}
+tareasCount();
 
