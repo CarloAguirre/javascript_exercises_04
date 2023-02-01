@@ -1,5 +1,25 @@
 
-let tareas = [];
+let tareas = [
+    {
+        id: new Date().getTime(),
+        desc: "Optimizar codigo",
+        fecha: new Date().toLocaleDateString(), 
+        estado: false
+    },
+    {
+        id: new Date().getTime() + 1,
+        desc: "Realizar ejercicios de brazos",
+        fecha: new Date().toLocaleDateString(), 
+        estado: false
+        },
+    {
+        id: new Date().getTime() + 2,
+        desc: "Entregar aplicacion de React.js",
+        fecha:new Date().toLocaleDateString(), 
+        estado: false
+    }
+];
+
 let tablaTareas = document.getElementById("listaTareas")
 
 const creaTarea = ()=>{
