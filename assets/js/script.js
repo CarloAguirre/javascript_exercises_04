@@ -28,7 +28,7 @@ const listarTareas = ()=>{
                         <td>${tarea.id}</td>
                         <td>${tarea.desc}</td>
                         <td>${tarea.fecha}</td>
-                        <td>Pendiente <span><button class="btn btn-primary mb-3" onclick="completarTarea(${tarea.id})">Completar</button></span></td>                     
+                        <td>Pendiente <span><button class="btn btn-primary" onclick="completarTarea(${tarea.id})">Completar</button></span><button class="btn btn-danger ms-2" onclick="borrarTarea(${tarea.id})">Borrar Tarea</button></span></td>                     
                     </tr>`
 
    
@@ -37,7 +37,7 @@ const listarTareas = ()=>{
                         <td>${tarea.id}</td>
                         <td>${tarea.desc}</td>
                         <td>${tarea.fecha}</td>
-                        <td>Completada</td>                     
+                        <td>Completada </span><button class="btn btn-danger ms-2" onclick="borrarTarea(${tarea.id})">Borrar Tarea</button></span></td>                     
                     </tr>`
         }
 
@@ -65,6 +65,13 @@ const listarTareas = ()=>{
 const completarTarea = (tareaId)=>{
     let tarea = tareas.find(tarea=>tarea.id === tareaId)
     tarea.estado = true;
+    listarTareas()
+    tareasCount()
+}
+
+const borrarTarea = (tareaId)=>{
+    let index = tareas.find(tarea=>tarea.id === tareaId)
+    tareas.splice(index, 1)
     listarTareas()
     tareasCount()
 }
