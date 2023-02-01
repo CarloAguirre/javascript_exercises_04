@@ -1,0 +1,13 @@
+
+main{
+    background-color: aliceblue;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+.form-container, .btn-container, .input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
