@@ -19,3 +19,8 @@ main{
     justify-content: center;
     align-items: center;
 }
+.logo-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
