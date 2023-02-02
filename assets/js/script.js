@@ -4,19 +4,19 @@ let tareas = [
         id: new Date().getTime(),
         desc: "Optimizar codigo",
         fecha: new Date().toLocaleDateString(), 
-        estado: false
+        completa: false
     },
     {
         id: new Date().getTime() + 1,
         desc: "Realizar ejercicios de brazos",
         fecha: new Date().toLocaleDateString(), 
-        estado: false
-        },
+        completa: false
+    },
     {
         id: new Date().getTime() + 2,
         desc: "Entregar aplicacion de React.js",
         fecha:new Date().toLocaleDateString(), 
-        estado: false
+        completa: false
     }
 ];
 
@@ -24,14 +24,14 @@ let tablaTareas = document.getElementById("listaTareas")
 
 const creaTarea = ()=>{
     let btnCreaTareas = document.getElementById("btnCreaTareas");
-    let nuevaTarea = document.getElementById("nuevaTarea")
+    let nuevaTarea = document.getElementById("nuevaTarea");
     
     btnCreaTareas.addEventListener("click", ()=>{
         let idTarea = new Date().getTime();
         let date = new Date().toLocaleDateString();
 
         if(nuevaTarea.value){
-            tareas.push({id:idTarea, desc:nuevaTarea.value, fecha:date, estado: false}); 
+            tareas.push({id:idTarea, desc:nuevaTarea.value, fecha:date, completa: false}); 
         }else{
             alert("Ingresa la descripción de tu Tarea.")
         }
@@ -46,7 +46,7 @@ const listarTareas = ()=>{
    document.getElementById("sinTareas").innerHTML = `<img src="./assets/imgs/calendar.png" alt="imagen de calendario" width="500px">`;
 
     for(let tarea of tareas){      
-        if(tarea.estado === false){
+        if(tarea.completa === false){
             html += `<tr>
                         <td>${tarea.id}</td>
                         <td>${tarea.desc}</td>
@@ -73,7 +73,7 @@ const listarTareas = ()=>{
 
 const completarTarea = (tareaId)=>{
     let tarea = tareas.find(tarea=>tarea.id === tareaId);
-    tarea.estado = true;
+    tarea.completa = true;
     listarTareas();
     tareasCount();
 };
@@ -92,7 +92,7 @@ const tareasCount =()=>{
     let totalTareas = tareas.length;
     let tareasCompletadas = 0;
     tareas.find(tarea=>{
-        if(tarea.estado === true){
+        if(tarea.completa === true){
             tareasCompletadas ++
         }
     });

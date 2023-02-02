@@ -5,7 +5,7 @@ main{
     border-bottom-right-radius: 5%;
 }
 
-.form-container, .btn-container, .input-container{
+.form-container, .btn-container, .input-container, .logo-container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,10 +17,5 @@ main{
 #sinTareas{
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-.logo-container{
-    display: flex;
-    flex-direction: row;
     align-items: center;
 }
