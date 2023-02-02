@@ -43,23 +43,25 @@ const creaTarea = ()=>{
 
 const listarTareas = ()=>{
     let html ='';
-   document.getElementById("sinTareas").innerHTML = `<img src="./assets/imgs/calendar.png" alt="imagen de calendario" width="500px">`;
+    document.getElementById("sinTareas").innerHTML = `<img src="./assets/imgs/calendar.png" alt="imagen de calendario" width="500px">`;
 
-    for(let tarea of tareas){      
+   let tareaRowTemplate =(tarea, estado, btnCompletarTarea="")=>{
+    return  `<tr>
+                <td>${tarea.id}</td>
+                <td>${tarea.desc}</td>
+                <td>${tarea.fecha}</td>
+                <td>${estado}${btnCompletarTarea}<span><button class="btn btn-danger ms-2" onclick="borrarTarea(${tarea.id})">Borrar Tarea</button></span></td>                   
+            </tr>`;
+   }
+
+   for(let tarea of tareas){      
+        let btnCompletarTarea = `<span><button class="btn btn-success ms-3" onclick="completarTarea(${tarea.id})">Completar</button>`
         if(tarea.completa === false){
-            html += `<tr>
-                        <td>${tarea.id}</td>
-                        <td>${tarea.desc}</td>
-                        <td>${tarea.fecha}</td>
-                        <td>Pendiente <span><button class="btn btn-success" onclick="completarTarea(${tarea.id})">Completar</button></span><button class="btn btn-danger ms-2" onclick="borrarTarea(${tarea.id})">Borrar Tarea</button></span></td>                     
-                    </tr>`
+            let estado = "Pendiente" 
+            html += tareaRowTemplate(tarea, estado, btnCompletarTarea)
         }else{
-            html += `<tr>
-                        <td>${tarea.id}</td>
-                        <td>${tarea.desc}</td>
-                        <td>${tarea.fecha}</td>
-                        <td>Completada </span><button class="btn btn-danger ms-2" onclick="borrarTarea(${tarea.id})">Borrar Tarea</button></span></td>                     
-                    </tr>`
+            let estado = "Completada"
+            html += tareaRowTemplate(tarea, estado)
         };
 
     };
