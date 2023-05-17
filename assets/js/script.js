@@ -55,9 +55,9 @@ const listarTareas = ()=>{
    }
 
    for(let tarea of tareas){      
-        let btnCompletarTarea = `<span><button class="btn btn-success ms-3" onclick="completarTarea(${tarea.id})">Completar</button>`
-        if(tarea.completa === false){
-            let estado = "Pendiente" 
+       if(tarea.completa === false){
+            let btnCompletarTarea = `<span><button class="btn btn-success ms-3" onclick="completarTarea(${tarea.id})">Completar</button>`
+            let estado = "Pendiente"; 
             html += tareaRowTemplate(tarea, estado, btnCompletarTarea)
         }else{
             let estado = "Completada"
@@ -107,3 +107,9 @@ creaTarea();
 tareasCount();
 listarTareas();
 
+Array = [1, 3];
+Array.map((elem)=>{
+    console.log(elem**2)
+})
+
+console.log(Array)
